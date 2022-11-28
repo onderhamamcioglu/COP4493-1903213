@@ -3,6 +3,11 @@ name: Upload to S3
 on: [push]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
   upload:
     runs-on: ubuntu-latest
     steps:
