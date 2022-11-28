@@ -16,12 +16,9 @@ jobs:
           description: 'Preview my app'
           environment: preview
           
-      #- name: fix
-      #  run: |-
-      #     npm update
-      #     npm install
-      #     node node_modules/node-sass/scripts/install.js
-      #     npm rebuild node-sass --force
+      - name: fix
+        run: |-
+          npm rebuild node-sass --force
 
       - uses: shallwefootball/s3-upload-action@master
         name: Upload S3
