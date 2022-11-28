@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Upload to S3
         run: |
-          aws s3 sync --region us-east-1 ../../COP4493-1903213/pages/ s3://s3-websitecontent
+          aws s3 sync --region us-east-1 --acl public-read ./pages/ s3://s3-websitecontent
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
