@@ -15,9 +15,9 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ASIAYF5AH4PS7O6DSS6B
-          aws-secret-access-key: hEKLNjZox3P+u2934CcEyYWbIB5aefvsk/vLy4uy
-          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws-region: us-east-1
 
       - name: Deploy to S3 Bucket
         run:
