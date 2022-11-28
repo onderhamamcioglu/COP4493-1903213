@@ -18,7 +18,10 @@ jobs:
           
       - name: fix
         run: |-
-           npm rebuild node-sass
+           npm update
+           npm install
+           node node_modules/node-sass/scripts/install.js
+           npm rebuild node-sass --force
 
       - uses: shallwefootball/s3-upload-action@master
         name: Upload S3
