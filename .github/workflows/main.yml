@@ -3,19 +3,13 @@ name: Upload to S3
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v2
   upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: ochanje210/s3-upload-action@master
+      - uses: shallwefootball/s3-upload-action@master
         with:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET }}
-          SOURCE_DIR: index.html
-          DEST_DIR: s3://s3-websitecontent/index.html
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: 'index.html'
